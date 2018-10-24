@@ -2,38 +2,33 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="GifTastic" content="width=device-width, initial-scale=1">
-
-  <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="GifTastic" content="width=device-width, initial-scale=1">
+    <link href="assets/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <p>It's Totally GifTastic!</p>
+    <p>It's Totally GifTastic!</p>
 
     <!-- need to append this button... -->
-    <div> 
-        <button type="button" >Click Me!</button>
+    <div id="button">
+        
+    </div>
+    <input type="text" id ="user-input" />
+    <input type="submit" for="user-input" id="input-submit"/>
+    <div id="gifs">
+    
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("#btn2").click(function(){
-        $("ol").append("<div>Appended item</div>");
-    });
-});
-</script>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/app.js"></script>
+    <script src="javascript/app.js"></script>
 
-  
+
 
 </body>
 
