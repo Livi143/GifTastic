@@ -10,7 +10,7 @@
 
 
  // save variable of topics, as a string
-var topicsArray = ["cat", "dog", "horse", "melania"]; // will hold topics here
+var topicsArray = ["ryan+gosling", "ski", "horse", "melania"]; // will hold topics here
 // need to grab the inputed text to create the gif section...
 // need to push topics to topicsArray
 // need to create and name buttons from the variabls (append)
@@ -50,7 +50,6 @@ $(document).on("click", ".theme", function(){
             // .fixed_height.url allows for motion
             var image= $("<img>").attr("src", giffy.data[j].images.original_still.url);
             $("#gifs").append(image);
-
             // this makes the gifs animate automatically
             // var image= $("<img>").attr("src", giffy.data[j].images.fixed_height.url);
             // $("#gifs").append(image);
