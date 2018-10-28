@@ -1,3 +1,6 @@
+// In case you forget: api key: 
+// RGbEnN9zKfHY5SSY4IezroLzwtw7wkwF
+
 
     //javascript, jQuery
     // this is supposed to provide ryan goslin gifs... something's wrong though
@@ -7,7 +10,7 @@
 
 
  // save variable of topics, as a string
-var topicsArray = ["ryan gosling", "brad pitt", "chris pratt", "thor", "cat"]; // will hold topics here
+var topicsArray = ["cat", "dog", "horse", "melania"]; // will hold topics here
 // need to grab the inputed text to create the gif section...
 // need to push topics to topicsArray
 // need to create and name buttons from the variabls (append)
@@ -38,20 +41,32 @@ $(document).on("click", ".theme", function(){
     $.ajax({
         type: "get",
         
-        url: "http://api.giphy.com/v1/gifs/search?q="+ search+"&api_key=RGbEnN9zKfHY5SSY4IezroLzwtw7wkwF&limit=5"
+        url: "https://api.giphy.com/v1/gifs/search?q="+search+"&api_key=RGbEnN9zKfHY5SSY4IezroLzwtw7wkwF&limit=5"
         
     }).then(function(giffy){
         console.log(giffy);
         console.log(giffy.data[0].url);
         for (var j=0; j<giffy.data.length; j ++) {
-            var image= $("<img>").attr("src", giffy.data[j].images.fixed_height.url);
+            // .fixed_height.url allows for motion
+            var image= $("<img>").attr("src", giffy.data[j].images.original_still.url);
             $("#gifs").append(image);
+
+            // this makes the gifs animate automatically
+            // var image= $("<img>").attr("src", giffy.data[j].images.fixed_height.url);
+            // $("#gifs").append(image);
         }
     })
 
 });
 
+// this needs to be .still? or some other function
 createButtons();
+
+// need a onclick function to make the stills animate...
+
+// also need an onclick function to make animations go still (same function?)
+
+// don't forget the ratings!!! (listed under the buttons or gifs...)
 
 
 
