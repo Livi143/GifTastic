@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>console log's a Gif</title>
+    </head>
+    <body>
+        <!--no html needed...-->
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript">
+            // first thing, make your url a variable (api request string for ___)
+            var queryURL = "http://api.giphy.com/v1/gifs/search?q=mad+max&api_key=dc6zaTOxFJmzC";
+
+            // make the ajax request
+            $.ajax({url:queryURL, method:'GET'}).done(function(response){
+                console.log(response);
+            });
+        </script>
+    </body>
+</html>

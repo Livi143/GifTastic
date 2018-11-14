@@ -48,7 +48,8 @@ $(document).on("click", ".theme", function(){
         console.log(giffy.data[0].url);
         for (var j=0; j<giffy.data.length; j ++) {
             // .fixed_height.url allows for motion
-            var image= $("<img>").attr("src", giffy.data[j].images.original_still.url);
+            var image= $("<img>").attr("src", giffy.data[j].images.original_still.url).addClass("gifImage")
+                .attr("clickedOn","false").attr("animatedGif", giffy.data[j].images.original.url).attr("stillGif", giffy.data[j].images.original_still.url);
             $("#gifs").append(image);
             // this makes the gifs animate automatically
             // var image= $("<img>").attr("src", giffy.data[j].images.fixed_height.url);
@@ -62,6 +63,22 @@ $(document).on("click", ".theme", function(){
 createButtons();
 
 // need a onclick function to make the stills animate...
+$(document).on("click", ".gifImage", function(){
+    var clickedOn = $(this).attr("clickedOn");
+    console.log($(this));
+    if (clickedOn == "true") {
+        console.log("this has been clicked on already");
+        $(this).attr("clickedOn", "false");
+        console.log($(this).attr("clickedOn"));
+        $(this).attr("src", $(this).attr("stillGif"));
+    }    else  if (clickedOn=="false") {
+            console.log("this has not been clicked on");
+            $(this).attr("clickedOn", "true");
+            console.log($(this).attr("clickedOn"));
+            $(this).attr("src",$(this).attr("animatedGif"));
+        
+    }
+})
 
 // also need an onclick function to make animations go still (same function?)
 
