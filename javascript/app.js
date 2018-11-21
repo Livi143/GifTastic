@@ -2,9 +2,7 @@
 // RGbEnN9zKfHY5SSY4IezroLzwtw7wkwF
 
 
-    //javascript, jQuery
-    // this is supposed to provide ryan goslin gifs... something's wrong though
-    $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=RGbEnN9zKfHY5SSY4IezroLzwtw7wkwF&limit=5");
+    
     
   
 
@@ -18,7 +16,7 @@ var topicsArray = ["ryan+gosling", "ski", "horse", "melania"]; // will hold topi
 
 
 function createButtons(){
-    $("#button").text(""); // this clears out hte extra buttons... inner value button div set = to 0
+    $("#button").empty(); // this clears out hte extra buttons... inner value button div set = to 0
     for (var i=0; i< topicsArray.length; i++) {
         // dynamically make a button for each topic
         var button = $("<button>").addClass("theme").text(topicsArray[i]);
@@ -50,10 +48,12 @@ $(document).on("click", ".theme", function(){
             // .fixed_height.url allows for motion
             var image= $("<img>").attr("src", giffy.data[j].images.original_still.url).addClass("gifImage")
                 .attr("clickedOn","false").attr("animatedGif", giffy.data[j].images.original.url).attr("stillGif", giffy.data[j].images.original_still.url);
-            $("#gifs").append(image);
+                    var rating = $(`<p>rating: ${giffy.data[j].rating}</p>`);
+            $("#gifs").append(image, rating);
             // this makes the gifs animate automatically
             // var image= $("<img>").attr("src", giffy.data[j].images.fixed_height.url);
             // $("#gifs").append(image);
+
         }
     })
 
@@ -79,6 +79,7 @@ $(document).on("click", ".gifImage", function(){
         
     }
 })
+
 
 // also need an onclick function to make animations go still (same function?)
 
